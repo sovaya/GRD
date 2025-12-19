@@ -1,3 +1,4 @@
 # GRD
 Generic Roguelike Deck-builder
-test!
+
+Inventory branch.
