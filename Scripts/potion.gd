@@ -11,11 +11,8 @@ var throwing := false
 var drag_offset := Vector2.ZERO
 var original_position := Vector2.ZERO
 
-# Click vs drag detection
 var click_start_pos := Vector2.ZERO
 const CLICK_THRESHOLD := 8.0
-
-# Tracks whether THIS potion received the click this frame
 var clicked_this_frame := false
 
 
@@ -24,24 +21,20 @@ var clicked_this_frame := false
 # -------------------------
 @onready var cursor: Sprite2D = $Cursor
 @onready var impact_particles: GPUParticles2D = $ImpactParticles
-
-# Original cursor scale (used for animation reset)
 var cursor_base_scale := Vector2.ONE
 
 
 # -------------------------
 # Potion data
 # -------------------------
-# Reference to the data resource describing this potion.
-# This lets the same potion scene represent many different potions.
 @export var potion_data: PotionData
 
 
-# Text used to describe effects in the UI.
-# Keys MUST be strings to match ingredient effect keys.
-var effectDescriptions := {
-	"damage": "Damages target by ",
-	"healing": "Heals target by "
+# Effect descriptions (string keys!)
+var effect_descriptions := {
+	"energy": "Costs Energy: ",
+	"damage": "Damages Target by ",
+	"healing": "Heals Target by "
 }
 
 
@@ -52,76 +45,79 @@ func _ready():
 	cursor_base_scale = cursor.scale
 
 	# -------------------------
-	# TEMP: Hard-coded test potion
-	# Remove when crafting is implemented
+	# TEMP: Debug potion if none assigned
+	# Remove once crafting is implemented
 	# -------------------------
 	if potion_data == null:
 		potion_data = PotionData.new()
-		potion_data.display_name = "Debug Test Potion"
+		potion_data.display_name = "Debug Potion"
 		potion_data.ingredients = [
 			preload("res://Items/Ingredients/Mushroom.tres"),
 			preload("res://Items/Ingredients/Frog_Leg.tres")
 		]
 		potion_data.rebuild_effects()
+		_roll_random_effects()
 
-	# -------------------------
-	# Normal rebuild
-	# -------------------------
-	if potion_data:
+	else:
 		potion_data.rebuild_effects()
+		_roll_random_effects()
 
+
+# -------------------------
+# Randomization
+# -------------------------
+func _roll_random_effects():
+	randomize()
+
+	for effect in potion_data.effects.keys():
+		var value = potion_data.effects[effect]
+		if value is Vector2i:
+			potion_data.effects[effect] = randi_range(value.x, value.y)
 
 
 # -------------------------
 # Input handling
 # -------------------------
-func _input_event(viewport, event, shape_idx):
+func _input_event(_viewport, event, _shape_idx):
 	if throwing:
 		return
 
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
-			# Start click / drag tracking
 			clicked_this_frame = true
 			click_start_pos = get_global_mouse_position()
 			_start_drag()
 		else:
-			# Determine whether this was a click or a drag
-			var release_pos = get_global_mouse_position()
-			var moved_distance = click_start_pos.distance_to(release_pos)
-
-			if moved_distance <= CLICK_THRESHOLD:
+			var moved := click_start_pos.distance_to(get_global_mouse_position())
+			if moved <= CLICK_THRESHOLD:
 				_on_click()
 			else:
 				_end_drag()
 
 
 func _process(_delta):
-	# Follow mouse while dragging
 	if dragging and not throwing:
 		global_position = get_global_mouse_position() + drag_offset
 
 
 # -------------------------
-# UI text building
+# UI text
 # -------------------------
 func _build_potion_info_text() -> String:
 	if potion_data == null:
 		return ""
 
 	var text := ""
-
-	# Loop through each effect the potion has
 	for effect in potion_data.effects.keys():
-		if effectDescriptions.has(effect):
-			text += effectDescriptions[effect] \
+		if effect_descriptions.has(effect):
+			text += effect_descriptions[effect] \
 				+ str(potion_data.effects[effect]) + "\n"
 
 	return text.strip_edges()
 
 
 # -------------------------
-# Drag & drop logic
+# Drag & drop
 # -------------------------
 func _start_drag():
 	dragging = true
@@ -140,15 +136,15 @@ func _end_drag():
 		return
 
 	match target.name:
-		"Player", "Enemy":
-			_throw_to(target.global_position)
+		"Entity":
+			_throw_to(target)
 		_:
 			global_position = original_position
 
 
 func _get_hovered_target() -> Area2D:
 	for area in get_overlapping_areas():
-		if area.name in ["Player", "Enemy", "Background"]:
+		if area.name in ["Entity", "Background"]:
 			return area
 	return null
 
@@ -159,17 +155,14 @@ func _get_hovered_target() -> Area2D:
 func _on_click():
 	dragging = false
 	z_index = 0
-	
-	# Ignores an error if the potion is empty.
+
 	if potion_data == null:
 		return
 
-	# Update selected potion UI
 	if get_parent().get_parent().has_node("SelectedPotion"):
 		$"../../SelectedPotion/PotionName".text = potion_data.display_name
 		$"../../SelectedPotion/PotionInfo".text = _build_potion_info_text()
 
-	# Show and animate cursor
 	cursor.visible = true
 	cursor.scale = cursor_base_scale
 
@@ -181,38 +174,62 @@ func _on_click():
 
 
 # -------------------------
-# Throw animation
+# Throw & apply effects
 # -------------------------
-func _throw_to(target_pos: Vector2):
+func _throw_to(target: Node):
 	throwing = true
 	dragging = false
 
+	var target_pos: Vector2 = target.global_position
 	var start_pos := global_position
 	var mid_pos := (start_pos + target_pos) * 0.5 + Vector2(0, -80)
 
 	var tween := create_tween()
 	tween.set_parallel(true)
 
-	# Arc motion
 	tween.tween_property(self, "global_position", mid_pos, 0.15)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_property(self, "global_position", target_pos, 0.15)\
 		.set_delay(0.15).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
-	# Spin
 	tween.tween_property(self, "rotation", rotation + deg_to_rad(25), 0.3)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 
 	tween.finished.connect(func():
 		rotation = 0
 		throwing = false
+
+		_apply_effects_to(target)
+
 		if impact_particles:
+			impact_particles.reparent(get_parent())
+			impact_particles.finished.connect(impact_particles.queue_free)
 			impact_particles.restart()
+
+		queue_free()
 	)
 
 
+func _apply_effects_to(target: Node):
+	if potion_data == null:
+		return
+
+	var effects := potion_data.effects
+
+	if effects.has("damage") and target.stats:
+		target.stats.health -= effects["damage"]
+		target.get_node("Health").text = "Health: %d" % target.stats.health
+
+	if effects.has("healing") and target.stats:
+		target.stats.health += effects["healing"]
+		target.get_node("Health").text = "Health: %d" % target.stats.health
+
+	# Energy cost intentionally NOT applied here
+	# (usually handled by the player using the potion)
+
+
 # -------------------------
-# Cursor hiding logic
+# Cursor hiding
 # -------------------------
 func _hide_cursor():
 	cursor.visible = false
@@ -226,11 +243,7 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.pressed:
-		# Hide cursor if another potion was clicked
 		if not clicked_this_frame:
 			_hide_cursor()
 
-	# Reset click tracking for next frame
 	clicked_this_frame = false
-	
-	

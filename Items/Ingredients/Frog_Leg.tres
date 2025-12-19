@@ -8,6 +8,6 @@ script = ExtResource("1_qibjd")
 display_name = "Frog Leg"
 description = "Still kicking."
 icon = ExtResource("1_1geb1")
-amount = 3
+amount = 5
 effect = "damage"
 metadata/_custom_type_script = "uid://bb48tx0uucxtd"

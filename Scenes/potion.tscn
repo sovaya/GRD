@@ -1,9 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bcj1uvn23m37b"]
 
-[ext_resource type="Script" uid="uid://x8s5lj3vxsa6" path="res://Scripts/potion.gd" id="1_174ht"]
+[ext_resource type="Script" uid="uid://x8s5lj3vxsa6" path="res://potion.gd" id="1_174ht"]
 [ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://icon.svg" id="2_8parx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhif3"]
+size = Vector2(11.428571, 11.428571)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8tbuy"]
 load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
@@ -35,11 +36,12 @@ position = Vector2(-1.9073486e-06, -1.9073486e-06)
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("2_8parx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_8parx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9.536743e-07, -9.536743e-07)
 scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_hhif3")
 
