@@ -19,9 +19,10 @@ var clicked_this_frame := false
 @onready var impact_particles: GPUParticles2D = $ImpactParticles
 
 @export var potionName: String = "Potion of Damaging"
-@export var potionInfo: Dictionary = {
-	damage = Vector2i(1, 5),
-	healing = Vector2i(1, 5)
+@export var potionInfo: Dictionary = { # The Vector2i is meant for randomizing the stats
+	energy = 1,
+	damage = Vector2i(0, 5),
+	healing = Vector2i(0, 5)
 }
 
 
@@ -29,11 +30,13 @@ func roll_potion_stats():
 	randomize()
 
 	for effect in potionInfo.keys():
-		var range: Vector2i = potionInfo[effect]
-		potionInfo[effect] = randi_range(range.x, range.y)
+		if potionInfo[effect] is Vector2i:
+			var range: Vector2i = potionInfo[effect]
+			potionInfo[effect] = randi_range(range.x, range.y)
 
 
 var effectDescriptions = {
+	energy = "Costs Energy: ",
 	damage = "Damages Target by ",
 	healing = "Heals Target by "
 }
@@ -93,8 +96,8 @@ func _end_drag():
 		return
 
 	match target.name:
-		"Player", "Enemy":
-			_throw_to(target.global_position)
+		"Entity":
+			_throw_to(target)
 		"Background":
 			global_position = original_position
 		_:
@@ -108,7 +111,7 @@ func _process(_delta):
 
 func _get_hovered_target() -> Area2D:
 	for area in get_overlapping_areas():
-		if area.name in ["Player", "Enemy", "Background"]:
+		if area.name in ["Entity", "Background"]:
 			return area
 	return null
 
@@ -142,9 +145,11 @@ func _on_click():
 	).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_IN)
 
 
-func _throw_to(target_pos: Vector2):
+func _throw_to(target: Node):
 	throwing = true
 	dragging = false
+	
+	var target_pos : Vector2 = target.global_position
 
 	var start_pos := global_position
 	var mid_pos := (start_pos + target_pos) * 0.5 + Vector2(0, -80)
@@ -166,14 +171,23 @@ func _throw_to(target_pos: Vector2):
 	tween.tween_property(self, "rotation", rotation + deg_to_rad(25), 0.3)\
 		.set_trans(Tween.TRANS_SINE)\
 		.set_ease(Tween.EASE_OUT)
+		
 
 	tween.finished.connect(func():
 		rotation = 0
 		throwing = false
-
+		
+		target.stats.health -= potionInfo.damage
+		target.get_node("Health").text = "Health: %d" % target.stats.health
+		
 		if impact_particles:
+			impact_particles.reparent(get_parent())
+			impact_particles.finished.connect(impact_particles.queue_free)
+
 			impact_particles.restart()
+		queue_free()
 	)
+	
 	
 func _hide_cursor():
 	cursor.visible = false
