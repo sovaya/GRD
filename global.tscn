@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=3 uid="uid://brhalxnfkcm6l"]
+
+[ext_resource type="Script" uid="uid://chnc37btl00vl" path="res://global.gd" id="1_2wtbm"]
+[ext_resource type="Script" uid="uid://c5ee0mm3mhk22" path="res://entity.gd" id="1_qxp0b"]
+[ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://icon.svg" id="2_2wtbm"]
+[ext_resource type="Script" uid="uid://x8s5lj3vxsa6" path="res://potion.gd" id="4_8tbuy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tbuy"]
+size = Vector2(91.42857, 46.571426)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhif3"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8tbuy"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[sub_resource type="Gradient" id="Gradient_8tbuy"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hhif3"]
+gradient = SubResource("Gradient_8tbuy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8tbuy"]
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 60.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+damping_min = 0.2
+damping_max = 0.5
+scale_min = 0.099999994
+scale_max = 0.099999994
+color_ramp = SubResource("GradientTexture1D_hhif3")
+
+[node name="Global" type="Node2D"]
+script = ExtResource("1_2wtbm")
+
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(256, 512)
+
+[node name="Enemy" type="Node2D" parent="."]
+position = Vector2(896, 512)
+
+[node name="Storage" type="Node2D" parent="."]
+
+[node name="Entity" type="Area2D" parent="Storage"]
+visible = false
+script = ExtResource("1_qxp0b")
+
+[node name="Sprite2D" type="Sprite2D" parent="Storage/Entity"]
+texture = ExtResource("2_2wtbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Storage/Entity"]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_8tbuy")
+
+[node name="Stage" type="Node2D" parent="."]
+position = Vector2(576, 320)
+
+[node name="Hand" type="Node2D" parent="Stage"]
+
+[node name="Background" type="Area2D" parent="Stage/Hand"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Stage/Hand/Background"]
+texture_filter = 4
+position = Vector2(1.5258789e-05, -96)
+scale = Vector2(5, 2.5)
+texture = ExtResource("2_2wtbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Hand/Background"]
+position = Vector2(0, -93)
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_8tbuy")
+
+[node name="Potion" type="Area2D" parent="Stage/Hand"]
+position = Vector2(0, -96)
+script = ExtResource("4_8tbuy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Stage/Hand/Potion"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_2wtbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stage/Hand/Potion"]
+scale = Vector2(7, 7)
+shape = SubResource("RectangleShape2D_hhif3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Stage/Hand/Potion"]
+offset_left = -176.0
+offset_top = 24.0
+offset_right = 176.0
+offset_bottom = 96.0
+fit_content = true
+horizontal_alignment = 1
+
+[node name="ImpactParticles" type="GPUParticles2D" parent="Stage/Hand/Potion"]
+scale = Vector2(2, 2)
+emitting = false
+amount = 20
+texture = SubResource("CompressedTexture2D_8tbuy")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_8tbuy")
