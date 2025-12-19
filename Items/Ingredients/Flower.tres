@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="IngredientItemData" load_steps=3 format=3 uid="uid://bg2vucrp3eq2l"]
+
+[ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://icon.svg" id="1_k8ros"]
+[ext_resource type="Script" uid="uid://bb48tx0uucxtd" path="res://Scripts/Items/ingredient_item_data.gd" id="1_lqtrl"]
+
+[resource]
+script = ExtResource("1_lqtrl")
+display_name = "Flower"
+description = "Beauty uprooted."
+icon = ExtResource("1_k8ros")
+amount = 1
+effect = "healing"
+metadata/_custom_type_script = "uid://bb48tx0uucxtd"

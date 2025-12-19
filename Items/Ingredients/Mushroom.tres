@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="IngredientItemData" load_steps=3 format=3 uid="uid://de7jgyyl20h0w"]
+
+[ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://icon.svg" id="1_75ns1"]
+[ext_resource type="Script" uid="uid://bb48tx0uucxtd" path="res://Scripts/Items/ingredient_item_data.gd" id="1_n5425"]
+
+[resource]
+script = ExtResource("1_n5425")
+display_name = "Mushroom"
+description = "A brown shroom."
+icon = ExtResource("1_75ns1")
+amount = 2
+effect = "healing"
+metadata/_custom_type_script = "uid://bb48tx0uucxtd"

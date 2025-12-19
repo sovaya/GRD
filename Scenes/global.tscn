@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://brhalxnfkcm6l"]
 
-[ext_resource type="Script" uid="uid://chnc37btl00vl" path="res://global.gd" id="1_2wtbm"]
-[ext_resource type="Script" uid="uid://c5ee0mm3mhk22" path="res://entity.gd" id="1_qxp0b"]
+[ext_resource type="Script" uid="uid://chnc37btl00vl" path="res://Scripts/global.gd" id="1_2wtbm"]
+[ext_resource type="Script" uid="uid://c5ee0mm3mhk22" path="res://Scripts/entity.gd" id="1_qxp0b"]
 [ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://icon.svg" id="2_2wtbm"]
-[ext_resource type="PackedScene" uid="uid://bcj1uvn23m37b" path="res://potion.tscn" id="4_8tbuy"]
-[ext_resource type="Script" uid="uid://dhci1ssbrqcn8" path="res://selected_potion.gd" id="4_hhif3"]
-[ext_resource type="Script" uid="uid://6d3gyqk0ucb2" path="res://potions_in_hand.gd" id="6_74nqk"]
+[ext_resource type="PackedScene" uid="uid://bcj1uvn23m37b" path="res://Scenes/potion.tscn" id="4_8tbuy"]
+[ext_resource type="Script" uid="uid://dhci1ssbrqcn8" path="res://Scripts/selected_potion.gd" id="4_hhif3"]
+[ext_resource type="Script" uid="uid://6d3gyqk0ucb2" path="res://Scripts/potions_in_hand.gd" id="6_74nqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tbuy"]
 size = Vector2(91.42857, 46.571426)
