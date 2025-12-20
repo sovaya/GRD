@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bcj1uvn23m37b"]
 
-[ext_resource type="Script" uid="uid://x8s5lj3vxsa6" path="res://potion.gd" id="1_174ht"]
+[ext_resource type="Script" uid="uid://x8s5lj3vxsa6" path="res://Scripts/potion.gd" id="1_174ht"]
 [ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://icon.svg" id="2_8parx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhif3"]

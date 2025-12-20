@@ -6,6 +6,7 @@ extends Node2D
 @onready var potion_template: Node2D = $"../Potion"
 
 func _ready():
+	
 	_spawn_potions()
 
 func _spawn_potions():
@@ -25,3 +26,7 @@ func _spawn_potions():
 		potion.position = Vector2(x_offset, 0)
 
 		add_child(potion)
+
+
+func _on_end_turn_button_down():
+	_spawn_potions()

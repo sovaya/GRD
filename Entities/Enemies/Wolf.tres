@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=3 format=3 uid="uid://csxtue2umw532"]
+
+[ext_resource type="Script" uid="uid://cmxbawq2o0elj" path="res://Scripts/Enemies/enemy_data.gd" id="1_sr63e"]
+[ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://icon.svg" id="1_xsk2x"]
+
+[resource]
+script = ExtResource("1_sr63e")
+display_name = "Wolf"
+description = "Ferocious beast."
+icon = ExtResource("1_xsk2x")
+enemy_info = {
+"damage": 5,
+"health": 20
+}
+metadata/_custom_type_script = "uid://bb48tx0uucxtd"

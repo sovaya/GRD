@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="IngredientItemData" load_steps=3 format=3 uid="uid://fxa06wpahipc"]
+
+[ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://icon.svg" id="1_e7jrg"]
+[ext_resource type="Script" uid="uid://bb48tx0uucxtd" path="res://Scripts/Items/ingredient_item_data.gd" id="2_vw1uo"]
+
+[resource]
+script = ExtResource("2_vw1uo")
+display_name = "Wolf Claw"
+description = "Sharp!"
+icon = ExtResource("1_e7jrg")
+amount = 3
+effect = "damage"
+metadata/_custom_type_script = "uid://bb48tx0uucxtd"

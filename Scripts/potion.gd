@@ -15,6 +15,8 @@ var click_start_pos := Vector2.ZERO
 const CLICK_THRESHOLD := 8.0
 var clicked_this_frame := false
 
+signal potion_cast(potion, target)
+
 
 # -------------------------
 # Scene references
@@ -52,8 +54,7 @@ func _ready():
 		potion_data = PotionData.new()
 		potion_data.display_name = "Debug Potion"
 		potion_data.ingredients = [
-			preload("res://Items/Ingredients/Mushroom.tres"),
-			preload("res://Items/Ingredients/Frog_Leg.tres")
+			preload("res://Items/Ingredients/Frog_Leg.tres"),
 		]
 		potion_data.rebuild_effects()
 		_roll_random_effects()
@@ -216,9 +217,16 @@ func _apply_effects_to(target: Node):
 
 	var effects := potion_data.effects
 
+	
+	emit_signal("potion_cast", self, target)
+
 	if effects.has("damage") and target.stats:
 		target.stats.health -= effects["damage"]
 		target.get_node("Health").text = "Health: %d" % target.stats.health
+		if target.stats.health <= 0:
+			target.queue_free() # Kills the enemy, should put adding obtained ingredients logic in here
+			get_tree().root.get_node("Global/Stage/LargeText").text = "Battle Won!" # This doesn't account for if there's multiple enemies yet
+			
 
 	if effects.has("healing") and target.stats:
 		target.stats.health += effects["healing"]

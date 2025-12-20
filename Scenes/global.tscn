@@ -1,17 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://brhalxnfkcm6l"]
+[gd_scene load_steps=11 format=3 uid="uid://brhalxnfkcm6l"]
 
-[ext_resource type="Script" uid="uid://chnc37btl00vl" path="res://global.gd" id="1_2wtbm"]
-[ext_resource type="Script" uid="uid://c5ee0mm3mhk22" path="res://entity.gd" id="1_qxp0b"]
+[ext_resource type="Script" uid="uid://chnc37btl00vl" path="res://Scripts/global.gd" id="1_2wtbm"]
 [ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://icon.svg" id="2_2wtbm"]
-[ext_resource type="Script" uid="uid://cuiigxhuibbt3" path="res://player.gd" id="2_74nqk"]
-[ext_resource type="PackedScene" uid="uid://bcj1uvn23m37b" path="res://potion.tscn" id="4_8tbuy"]
-[ext_resource type="Script" uid="uid://6d3gyqk0ucb2" path="res://potions_in_hand.gd" id="6_74nqk"]
+[ext_resource type="Script" uid="uid://cuiigxhuibbt3" path="res://Scripts/player.gd" id="2_74nqk"]
+[ext_resource type="PackedScene" uid="uid://bcj1uvn23m37b" path="res://Scenes/potion.tscn" id="4_8tbuy"]
+[ext_resource type="Script" uid="uid://b10wov0t5yaai" path="res://enemy.gd" id="4_y7gcx"]
+[ext_resource type="Script" uid="uid://6d3gyqk0ucb2" path="res://Scripts/potions_in_hand.gd" id="6_74nqk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhif3"]
 size = Vector2(18.285717, 18.285711)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ol57v"]
-size = Vector2(18.28572, 18.285711)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8tbuy"]
 size = Vector2(91.42857, 46.571426)
@@ -54,23 +51,7 @@ text = "Energy: 3"
 
 [node name="Enemy" type="Node2D" parent="."]
 position = Vector2(832, 512)
-
-[node name="Entity" type="Area2D" parent="Enemy"]
-script = ExtResource("1_qxp0b")
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy/Entity"]
-texture = ExtResource("2_2wtbm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Entity"]
-scale = Vector2(7, 7)
-shape = SubResource("RectangleShape2D_ol57v")
-
-[node name="Health" type="RichTextLabel" parent="Enemy/Entity"]
-offset_left = -64.0
-offset_top = 80.0
-offset_right = 64.0
-offset_bottom = 112.0
-text = "Health: 20"
+script = ExtResource("4_y7gcx")
 
 [node name="Storage" type="Node2D" parent="."]
 
@@ -138,6 +119,22 @@ position = Vector2(196, -96)
 scale = Vector2(7, 7)
 shape = SubResource("RectangleShape2D_74nqk")
 
+[node name="TargetName" type="RichTextLabel" parent="Stage/Hand/SelectedTarget"]
+offset_left = 80.0
+offset_top = -240.0
+offset_right = 312.0
+offset_bottom = -200.0
+text = "Target Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TargetInfo" type="RichTextLabel" parent="Stage/Hand/SelectedTarget"]
+offset_left = 96.0
+offset_top = -184.0
+offset_right = 296.0
+offset_bottom = 40.0
+text = "Target Text"
+
 [node name="PotionsInHand" type="Node2D" parent="Stage/Hand"]
 position = Vector2(0, -96)
 script = ExtResource("6_74nqk")
@@ -153,5 +150,13 @@ offset_right = 568.0
 offset_bottom = 320.0
 text = ">>> End Turn"
 
+[node name="LargeText" type="RichTextLabel" parent="Stage"]
+offset_left = -144.0
+offset_top = -312.0
+offset_right = 144.0
+offset_bottom = -256.0
+horizontal_alignment = 1
+
 [connection signal="button_down" from="Stage/EndTurn" to="Player/Entity" method="_on_end_turn_button_down"]
-[connection signal="button_down" from="Stage/EndTurn" to="Enemy/Entity" method="_on_end_turn_button_down"]
+[connection signal="button_down" from="Stage/EndTurn" to="Enemy" method="_on_enemy_turn"]
+[connection signal="button_down" from="Stage/EndTurn" to="Stage/Hand/PotionsInHand" method="_on_end_turn_button_down"]
