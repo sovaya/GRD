@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="IngredientItemData" load_steps=3 format=3 uid="uid://bg2vucrp3eq2l"]
 
-[ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://Media/icon.svg" id="1_k8ros"]
+[ext_resource type="Texture2D" uid="uid://bvw8ijnfpyt56" path="res://Media/Sprites/flower.png" id="1_k8ros"]
 [ext_resource type="Script" uid="uid://bb48tx0uucxtd" path="res://Scripts/Items/ingredient_item_data.gd" id="1_lqtrl"]
 
 [resource]

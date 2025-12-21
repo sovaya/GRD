@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="ItemData" load_steps=2 format=3 uid="uid://c2xkjxnpqbnq4"]
+[gd_resource type="Resource" script_class="ItemData" load_steps=3 format=3 uid="uid://c2xkjxnpqbnq4"]
 
 [ext_resource type="Script" uid="uid://b03hfgd31r4c7" path="res://Scripts/Items/item_data.gd" id="1_dhosi"]
+[ext_resource type="Texture2D" uid="uid://d0a6jfinv08ap" path="res://Media/Sprites/potion.png" id="1_fx3rq"]
 
 [resource]
 script = ExtResource("1_dhosi")
+icon = ExtResource("1_fx3rq")
 metadata/_custom_type_script = "uid://b03hfgd31r4c7"
