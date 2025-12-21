@@ -1,2 +1,2 @@
 # GRD
-Generic Roguelike Deck-builder
+Generic Roguelike Deck-builder.

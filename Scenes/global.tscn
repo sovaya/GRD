@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://brhalxnfkcm6l"]
 
 [ext_resource type="Script" uid="uid://chnc37btl00vl" path="res://Scripts/global.gd" id="1_2wtbm"]
-[ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://icon.svg" id="2_2wtbm"]
+[ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://Media/icon.svg" id="2_2wtbm"]
 [ext_resource type="Script" uid="uid://cuiigxhuibbt3" path="res://Scripts/player.gd" id="2_74nqk"]
 [ext_resource type="PackedScene" uid="uid://bcj1uvn23m37b" path="res://Scenes/potion.tscn" id="4_8tbuy"]
 [ext_resource type="Script" uid="uid://b10wov0t5yaai" path="res://Scripts/Enemies/enemy.gd" id="4_y7gcx"]
