@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GRD_temp"
+config/name="GRD"
 run/main_scene="uid://brhalxnfkcm6l"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
