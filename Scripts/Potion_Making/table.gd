@@ -24,8 +24,8 @@ func _ready():
 
 # Create a 4x4 grid with spacing
 func _build_grid_positions():
-	var spacing := 64
-	var start := Vector2(500,500)
+	var spacing := 160
+	var start := Vector2(400,500)
 
 	for y in range(4):
 		for x in range(4):

@@ -20,7 +20,7 @@ func _ready():
 	if ingredient_data and ingredient_data.icon:
 		sprite.texture = ingredient_data.icon
 	# Scale down large icons
-	sprite.scale = Vector2(0.1, 0.1)
+	sprite.scale = Vector2(0.5, 0.5)
 
 
 func _input_event(_viewport, event, _shape_idx):
@@ -43,6 +43,7 @@ func _input_event(_viewport, event, _shape_idx):
 			# Stop dragging
 			dragging = false
 			z_index = 0
+			snap_back()
 
 
 func _process(_delta):

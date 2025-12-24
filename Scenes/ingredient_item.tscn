@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://kyae0dmp8iuj"]
+[gd_scene load_steps=3 format=3 uid="uid://kyae0dmp8iuj"]
 
 [ext_resource type="Script" uid="uid://fxh2kn1ym57y" path="res://Scripts/Potion_Making/ingredient_item.gd" id="1_h8je1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8je1"]
+size = Vector2(128, 128)
 
 [node name="IngredientItem" type="Area2D"]
 script = ExtResource("1_h8je1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h8je1")
