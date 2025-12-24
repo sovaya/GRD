@@ -1,6 +1,7 @@
-res://Scenes/global.tscn
-res://Items/Ingredients/Frog_Leg.tres
-res://Items/Ingredients/Flower.tres
-res://Items/Ingredients/Mushroom.tres
-res://Items/Ingredients/Wolf_Claw.tres
-res://Items/Potions/Potion.tres
+res://Scripts/Items/item_data.gd
+res://Scenes/ingredient_item.tscn
+res://Scripts/Items/ingredient_item.gd
+res://Scripts/Potion_Making/ingredient_item.gd
+res://Scripts/Potion_Making/table.gd
+res://Scenes/potion_making.tscn
+res://Scripts/Inventory/inventory.gd
