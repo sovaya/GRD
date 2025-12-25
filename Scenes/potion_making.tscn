@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bu8xspystoycl"]
+[gd_scene load_steps=7 format=3 uid="uid://bu8xspystoycl"]
 
 [ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://Media/icon.svg" id="1_0l4rq"]
 [ext_resource type="Script" uid="uid://b6kcmvxuv5eo8" path="res://Scripts/Potion_Making/table.gd" id="1_tlume"]
 [ext_resource type="PackedScene" uid="uid://kyae0dmp8iuj" path="res://Scenes/ingredient_item.tscn" id="2_u376a"]
+[ext_resource type="Script" uid="uid://clxn732w2oap7" path="res://Scripts/Potion_Making/cauldron.gd" id="4_xsowi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlume"]
 size = Vector2(1152.5, 268)
@@ -12,7 +13,7 @@ size = Vector2(755, 342.5)
 
 [node name="PotionMaking" type="Node2D"]
 
-[node name="Table" type="Area2D" parent="."]
+[node name="Table" type="Area2D" parent="." groups=["table"]]
 script = ExtResource("1_tlume")
 ingredient_scene = ExtResource("2_u376a")
 
@@ -25,7 +26,8 @@ texture = ExtResource("1_0l4rq")
 position = Vector2(576.75, 512)
 shape = SubResource("RectangleShape2D_tlume")
 
-[node name="Cauldron" type="Area2D" parent="."]
+[node name="Cauldron" type="Area2D" parent="." groups=["cauldron"]]
+script = ExtResource("4_xsowi")
 
 [node name="Sprite2D" type="Sprite2D" parent="Cauldron"]
 position = Vector2(588, 201.00002)
@@ -35,3 +37,5 @@ texture = ExtResource("1_0l4rq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cauldron"]
 position = Vector2(590, 200)
 shape = SubResource("RectangleShape2D_u376a")
+
+[node name="Contents" type="Node2D" parent="Cauldron"]

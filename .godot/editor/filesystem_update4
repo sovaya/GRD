@@ -5,3 +5,4 @@ res://Scripts/Potion_Making/ingredient_item.gd
 res://Scripts/Potion_Making/table.gd
 res://Scenes/potion_making.tscn
 res://Scripts/Inventory/inventory.gd
+res://Scripts/Potion_Making/cauldron.gd
