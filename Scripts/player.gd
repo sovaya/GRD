@@ -27,8 +27,8 @@ func _ready():
 	
 
 func _attacked(enemy):
-	stats.health -= enemy.stats.attack
-	print("Attacked by ", enemy.stats.attack, ". Player health is now ",stats.health)
+	stats.health -= enemy.stats.damage
+	print("Attacked by ", enemy.stats.damage, ". Player health is now ",stats.health)
 	$Health.text = "Health: %d" % stats.health
 
 func _on_potion_cast(potion, target):

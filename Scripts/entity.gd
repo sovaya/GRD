@@ -19,7 +19,6 @@ var effect_descriptions := {
 	"damage": "Deals Damage: "
 }
 
-var original_position: Vector2
 
 signal attack(enemy)
 
@@ -27,6 +26,8 @@ func _ready():
 	get_parent().end_turn.connect(_on_end_turn_button_down)
 	if enemy_data == null:
 		enemy_data = preload("res://Entities/Enemies/Wolf.tres")
+		stats = enemy_data.enemy_info
+
 	
 func _input_event(_viewport, event, _shape_idx):
 
@@ -79,6 +80,7 @@ func _on_end_turn_button_down():
 
 
 func _play_attack_lunge():
+	var original_position: Vector2 = position
 	# How far the enemy lunges
 	var lunge_offset := Vector2(-30, 0)
 

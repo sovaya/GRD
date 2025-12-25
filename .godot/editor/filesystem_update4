@@ -1,8 +1,8 @@
-res://Scripts/Items/item_data.gd
-res://Scenes/ingredient_item.tscn
-res://Scripts/Items/ingredient_item.gd
-res://Scripts/Potion_Making/ingredient_item.gd
-res://Scripts/Potion_Making/table.gd
-res://Scenes/potion_making.tscn
-res://Scripts/Inventory/inventory.gd
-res://Scripts/Potion_Making/cauldron.gd
+res://Scenes/global.tscn
+res://Scripts/global.gd
+res://Scripts/Enemies/enemy.gd
+res://Scenes/entity.tscn
+res://Scripts/entity.gd
+res://Scripts/Potions/potion.gd
+res://Entities/Enemies/Wolf.tres
+res://Scripts/player.gd

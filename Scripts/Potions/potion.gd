@@ -135,9 +135,8 @@ func _end_drag():
 	if target == null:
 		global_position = original_position
 		return
-
-	match target.name:
-		"Entity":
+	match target.get_parent().name:
+		"Enemy":
 			_throw_to(target)
 		_:
 			global_position = original_position
@@ -145,7 +144,7 @@ func _end_drag():
 
 func _get_hovered_target() -> Area2D:
 	for area in get_overlapping_areas():
-		if area.name in ["Entity", "Background"]:
+		if area.get_parent().name in ["Player", "Enemy", "Background"]:
 			return area
 	return null
 
@@ -225,7 +224,7 @@ func _apply_effects_to(target: Node):
 		target.get_node("Health").text = "Health: %d" % target.stats.health
 		if target.stats.health <= 0:
 			target.queue_free() # Kills the enemy, should put adding obtained ingredients logic in here
-			get_tree().root.get_node("Global/Stage/LargeText").text = "Battle Won!" # This doesn't account for if there's multiple enemies yet
+			get_tree().root.get_node("Global").enemy_killed() # This doesn't account for if there's multiple enemies yet
 			
 
 	if effects.has("healing") and target.stats:

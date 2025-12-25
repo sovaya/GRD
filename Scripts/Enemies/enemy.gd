@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var amount := 1
-@export var spacing := 100
+@export var amount := 2
+@export var spacing := 130
 
 @onready var enemy_template = preload("res://Scenes/entity.tscn")
 

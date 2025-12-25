@@ -9,7 +9,7 @@ display_name = "Wolf"
 description = "Ferocious beast."
 icon = ExtResource("1_xsk2x")
 enemy_info = {
-"damage": 5,
+"damage": 3,
 "health": 20
 }
 metadata/_custom_type_script = "uid://bb48tx0uucxtd"
