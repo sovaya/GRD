@@ -224,7 +224,7 @@ func _apply_effects_to(target: Node):
 		target.get_node("Health").text = "Health: %d" % target.stats.health
 		if target.stats.health <= 0:
 			target.queue_free() # Kills the enemy, should put adding obtained ingredients logic in here
-			get_tree().root.get_node("Global").enemy_killed() # This doesn't account for if there's multiple enemies yet
+			get_tree().root.get_node("Global").enemy_killed(target.stats.drops) # This doesn't account for if there's multiple enemies yet
 			
 
 	if effects.has("healing") and target.stats:

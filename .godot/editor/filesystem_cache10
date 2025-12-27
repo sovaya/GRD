@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1766800954
+::res://::1766875346
 README.md::TextFile::-1::1766698856::0::1::::<><><>0<>0<><>::
 ::res://Entities/::1766698856
 ::res://Entities/Enemies/::1766698856
@@ -21,15 +21,15 @@ frog_leg.png::CompressedTexture2D::2649054235210139591::1766698856::1766698887::
 mushroom.png::CompressedTexture2D::9008786826819760010::1766698856::1766698887::1::::<><><>0<>0<>bd8ae720cc5e92ff3733a1671966e30a<>res://.godot/imported/mushroom.png-3a769c0eec80b2b0235085ea8c4f45f8.ctex::
 potion.png::CompressedTexture2D::8915881716545947595::1766698856::1766698887::1::::<><><>0<>0<>a1702ad90e0408371c75449b5b3bb3f7<>res://.godot/imported/potion.png-ba234bff9073c3450ce7847d066ff2ea.ctex::
 wolf_claw.png::CompressedTexture2D::1643573197607627759::1766698856::1766698887::1::::<><><>0<>0<>bfdc3d773b1448638e5ace6d597fe565<>res://.godot/imported/wolf_claw.png-8300a618d0d1c2bc1119ff5c768d3354.ctex::
-::res://Scenes/::1766698963
+::res://Scenes/::1766839247
 entity.tscn::PackedScene::7040237893375617935::1766698963::0::1::::<><><>0<>0<><>::uid://c5ee0mm3mhk22::::res://Scripts/entity.gd<>uid://b6e5hxdij361j::::res://Media/icon.svg
-global.tscn::PackedScene::3594102541911168617::1766698856::0::1::::<><><>0<>0<><>::uid://chnc37btl00vl::::res://Scripts/global.gd<>uid://b6e5hxdij361j::::res://Media/icon.svg<>uid://cuiigxhuibbt3::::res://Scripts/player.gd<>uid://bcj1uvn23m37b::::res://Scenes/potion.tscn<>uid://b10wov0t5yaai::::res://Scripts/Enemies/enemy.gd<>uid://6d3gyqk0ucb2::::res://Scripts/Potions/potions_in_hand.gd
+global.tscn::PackedScene::3594102541911168617::1766839247::0::1::::<><><>0<>0<><>::uid://chnc37btl00vl::::res://Scripts/global.gd<>uid://b6e5hxdij361j::::res://Media/icon.svg<>uid://cuiigxhuibbt3::::res://Scripts/player.gd<>uid://bcj1uvn23m37b::::res://Scenes/potion.tscn<>uid://b10wov0t5yaai::::res://Scripts/Enemies/enemy.gd<>uid://6d3gyqk0ucb2::::res://Scripts/Potions/potions_in_hand.gd
 ingredient_item.tscn::PackedScene::751441963938121993::1766698856::0::1::::<><><>0<>0<><>::uid://fxh2kn1ym57y::::res://Scripts/Potion_Making/ingredient_item.gd
 main.tscn::PackedScene::8206301383028103328::1766186460::0::1::::<><><>0<>0<><>::
 potion.tscn::PackedScene::2546993252783219185::1766698856::0::1::::<><><>0<>0<><>::uid://x8s5lj3vxsa6::::res://Scripts/Potions/potion.gd<>uid://b6e5hxdij361j::::res://Media/icon.svg
 potion_making.tscn::PackedScene::3859751483231002383::1766698856::0::1::::<><><>0<>0<><>::uid://b6e5hxdij361j::::res://Media/icon.svg<>uid://b6kcmvxuv5eo8::::res://Scripts/Potion_Making/table.gd<>uid://kyae0dmp8iuj::::res://Scenes/ingredient_item.tscn<>uid://clxn732w2oap7::::res://Scripts/Potion_Making/cauldron.gd
-::res://Scripts/::1766698856
-entity.gd::GDScript::6887052350468471249::1766698856::0::1::::<>Area2D<><>0<>0<><>::
+::res://Scripts/::1766804023
+entity.gd::GDScript::6887052350468471249::1766804023::0::1::::<>Area2D<><>0<>0<><>::
 global.gd::GDScript::5291173303041069905::1766698856::0::1::::<>Node2D<><>0<>0<><>::
 player.gd::GDScript::6193630932655013614::1766698856::0::1::::<>Area2D<><>0<>0<><>::
 ::res://Scripts/Enemies/::1766698856
@@ -41,8 +41,8 @@ inventory.gd::GDScript::355886917806438679::1766698856::0::1::::Inventory<>Node<
 ingredient_item_data.gd::GDScript::2518515320637058037::1766186460::0::1::::IngredientItemData<>ItemData<><>0<>0<><>::
 item_data.gd::GDScript::4199378620758626624::1766186460::0::1::::ItemData<>Resource<><>0<>0<><>::
 potion_data.gd::GDScript::8617042551848959349::1766186460::0::1::::PotionData<>Resource<><>0<>0<><>::
-::res://Scripts/Potions/::1766698856
-potion.gd::GDScript::1683614942206931759::1766698856::0::1::::<>Area2D<><>0<>0<><>::
+::res://Scripts/Potions/::1766803697
+potion.gd::GDScript::1683614942206931759::1766803697::0::1::::<>Area2D<><>0<>0<><>::
 potions_in_hand.gd::GDScript::2183759362367898805::1766698856::0::1::::<>Node2D<><>0<>0<><>::
 selected_potion.gd::GDScript::7655245851932875283::1766698856::0::1::::<>Area2D<><>0<>0<><>::
 ::res://Scripts/Potion_Making/::1766698856

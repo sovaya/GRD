@@ -10,11 +10,45 @@ extends Node2D
 
 var enemycount = 2
 
+var dropslist: Array = []
 
-func enemy_killed():
+
+
+func enemy_killed(drops):
 	enemycount -= 1
+	dropslist.append_array(drops)
 	if enemycount <= 0:
 		$Stage/BattleEnd.visible = true
+		_spawn_drop_icons(dropslist)
+
+func _spawn_drop_icons(drops: Array):
+	var items_gained := $Stage/BattleEnd/ItemsGained
+
+	# Clear old icons
+	for child in items_gained.get_children():
+		child.queue_free()
+
+	var spacing := 48
+	var total_width := (drops.size() - 1) * spacing
+
+	for i in range(drops.size()):
+		var drop: IngredientItemData = drops[i]
+
+		if drop.icon == null:
+			continue
+
+		var sprite := Sprite2D.new()
+		sprite.texture = drop.icon
+		sprite.scale = Vector2(0.3, 0.3) # 50% size
+
+
+		sprite.position = Vector2(
+			(i * spacing) - (total_width / 2.0),
+			0
+		)
+
+		items_gained.add_child(sprite)
+
 
 
 func _on_continue_button_down():
