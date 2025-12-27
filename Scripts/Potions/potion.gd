@@ -179,7 +179,7 @@ func _on_click():
 func _throw_to(target: Node):
 	throwing = true
 	dragging = false
-
+	
 	var target_pos: Vector2 = target.global_position
 	var start_pos := global_position
 	var mid_pos := (start_pos + target_pos) * 0.5 + Vector2(0, -80)
@@ -215,7 +215,7 @@ func _apply_effects_to(target: Node):
 		return
 
 	var effects := potion_data.effects
-
+	print(target.stats)
 	
 	emit_signal("potion_cast", self, target)
 

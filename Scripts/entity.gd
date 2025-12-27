@@ -26,7 +26,7 @@ func _ready():
 	get_parent().end_turn.connect(_on_end_turn_button_down)
 	if enemy_data == null:
 		enemy_data = preload("res://Entities/Enemies/Wolf.tres")
-		stats = enemy_data.enemy_info
+		stats = enemy_data.enemy_info.duplicate()
 
 	
 func _input_event(_viewport, event, _shape_idx):

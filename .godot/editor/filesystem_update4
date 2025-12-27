@@ -1,8 +1,3 @@
 res://Scenes/global.tscn
-res://Scripts/global.gd
-res://Scripts/Enemies/enemy.gd
-res://Scenes/entity.tscn
-res://Scripts/entity.gd
 res://Scripts/Potions/potion.gd
-res://Entities/Enemies/Wolf.tres
-res://Scripts/player.gd
+res://Scripts/entity.gd
