@@ -1,6 +1,0 @@
-res://Scenes/global.tscn
-res://Entities/Enemies/Wolf.tres
-res://Scripts/Potions/potion.gd
-res://Scripts/global.gd
-res://Scenes/entity.tscn
-res://Items/Ingredients/Flower.tres
