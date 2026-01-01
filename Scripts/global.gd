@@ -12,7 +12,8 @@ var enemycount = 2
 
 var dropslist: Array = []
 
-
+func _ready():
+	$AudioStreamPlayer2D.play()
 
 func enemy_killed(drops):
 	enemycount -= 1

@@ -2,13 +2,13 @@
 
 [ext_resource type="Resource" uid="uid://fxa06wpahipc" path="res://Items/Ingredients/Wolf_Claw.tres" id="1_24xb0"]
 [ext_resource type="Script" uid="uid://cmxbawq2o0elj" path="res://Scripts/Enemies/enemy_data.gd" id="1_sr63e"]
-[ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://Media/icon.svg" id="1_xsk2x"]
+[ext_resource type="Texture2D" uid="uid://b881xo50jh011" path="res://Media/Sprites/Enemies/Jellyfish.png" id="2_24xb0"]
 
 [resource]
 script = ExtResource("1_sr63e")
 display_name = "Wolf"
 description = "Ferocious beast."
-icon = ExtResource("1_xsk2x")
+icon = ExtResource("2_24xb0")
 enemy_info = {
 "damage": 3,
 "drops": [ExtResource("1_24xb0")],

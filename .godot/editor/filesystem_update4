@@ -1,0 +1,5 @@
+res://Scenes/map.tscn
+res://Entities/Enemies/Wolf.tres
+res://Scenes/entity.tscn
+res://Scripts/Enemies/enemy.gd
+res://Scenes/global.tscn

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7klxpcuchr8r"]
+[gd_scene load_steps=5 format=3 uid="uid://c7klxpcuchr8r"]
 
 [ext_resource type="Script" uid="uid://c5ee0mm3mhk22" path="res://Scripts/entity.gd" id="1_l7g7l"]
+[ext_resource type="Texture2D" uid="uid://cwkymvtgxji47" path="res://Media/Sprites/Cursor.png" id="2_8y38c"]
 [ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://Media/icon.svg" id="2_egtqx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ol57v"]
@@ -11,11 +12,13 @@ script = ExtResource("1_l7g7l")
 
 [node name="Cursor" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(-1.1920929e-06, -1.1920929e-06)
-scale = Vector2(1.2499999, 1.2499999)
-texture = ExtResource("2_egtqx")
+texture_filter = 1
+position = Vector2(-4.053116e-06, -2.1457672e-06)
+scale = Vector2(3.9999998, 3.9999998)
+texture = ExtResource("2_8y38c")
 
 [node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("2_egtqx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

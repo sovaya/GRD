@@ -5,6 +5,8 @@ extends Node2D
 
 @onready var enemy_template = preload("res://Scenes/entity.tscn")
 
+var wolf = preload("res://Entities/Enemies/Wolf.tres")
+
 signal end_turn()
 
 func _ready():
@@ -21,6 +23,9 @@ func _spawn_enemies():
 
 	for i in range(amount):
 		var enemy = enemy_template.instantiate()
+		enemy.get_node("Sprite").texture = wolf.icon
+		enemy.get_node("Sprite").scale.x = 3
+		enemy.get_node("Sprite").scale.y = 3
 		enemy.visible = true
 
 		# Centered offset

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brhalxnfkcm6l"]
+[gd_scene load_steps=12 format=3 uid="uid://brhalxnfkcm6l"]
 
 [ext_resource type="Script" uid="uid://chnc37btl00vl" path="res://Scripts/global.gd" id="1_2wtbm"]
 [ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://Media/icon.svg" id="2_2wtbm"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bcj1uvn23m37b" path="res://Scenes/potion.tscn" id="4_8tbuy"]
 [ext_resource type="Script" uid="uid://b10wov0t5yaai" path="res://Scripts/Enemies/enemy.gd" id="4_y7gcx"]
 [ext_resource type="Script" uid="uid://6d3gyqk0ucb2" path="res://Scripts/Potions/potions_in_hand.gd" id="6_74nqk"]
+[ext_resource type="AudioStream" uid="uid://csd5cnmiecwvj" path="res://Media/Sounds/Within the Labs.mp3" id="7_y7gcx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hhif3"]
 size = Vector2(18.285717, 18.285711)
@@ -190,6 +191,10 @@ text = "Continue"
 
 [node name="ItemsGained" type="Node2D" parent="Stage/BattleEnd"]
 position = Vector2(0, -128)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_y7gcx")
+volume_db = -16.197
 
 [connection signal="button_down" from="Stage/EndTurn" to="Player/Entity" method="_on_end_turn_button_down"]
 [connection signal="button_down" from="Stage/EndTurn" to="Enemy" method="_on_enemy_turn"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgya211c7typu"]
+
+[ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://Media/icon.svg" id="1_ci6au"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci6au"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Player" type="Area2D" parent="."]
+position = Vector2(576, 512)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(-2.3841858e-07, 2.3841858e-07)
+scale = Vector2(0.24999999, 0.24999999)
+texture = ExtResource("1_ci6au")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_ci6au")
+
+[node name="Monster" type="Area2D" parent="."]
+position = Vector2(704, 384)
+
+[node name="Sprite2D" type="Sprite2D" parent="Monster"]
+position = Vector2(-2.3841858e-07, 2.3841858e-07)
+scale = Vector2(0.24999999, 0.24999999)
+texture = ExtResource("1_ci6au")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Monster"]
+shape = SubResource("RectangleShape2D_ci6au")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(440, 384)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3"]
+position = Vector2(-2.3841858e-07, 2.3841858e-07)
+scale = Vector2(0.24999999, 0.24999999)
+texture = ExtResource("1_ci6au")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+shape = SubResource("RectangleShape2D_ci6au")
