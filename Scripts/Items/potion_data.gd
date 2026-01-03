@@ -1,11 +1,10 @@
+extends ItemData
 class_name PotionData
-extends Resource
+
 # Stores all data related to a potion.
 # This resource is what gets crafted, stored, saved, and inspected.
 # Scene nodes (Potion.gd) simply *read* from this.
 
-# Display name shown in UI
-@export var display_name: String = "Unnamed Potion"
 
 # List of ingredient resources used to create this potion.
 # These can be assigned in the editor or via code.
@@ -32,10 +31,10 @@ func rebuild_effects():
 		var effect_data := ingredient.get_effect_value() # Get the ingredient's effect contribution
 
 		# Merge ingredient effects into the potion
-		for effect in effect_data.keys():
+		for e in effect_data.keys():
 			# Initialize effect if it doesn't exist yet
-			if not effects.has(effect):
-				effects[effect] = 0
+			if not effects.has(e):
+				effects[e] = 0
 
 			# Stack effect values
-			effects[effect] += effect_data[effect]
+			effects[e] += effect_data[e]

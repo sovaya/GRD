@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var enemy_template = preload("res://Scenes/entity.tscn")
 
-var wolf = preload("res://Entities/Enemies/Wolf.tres")
+var wolf = preload("res://Resources/Entities/Enemies/Wolf.tres")
 
 signal end_turn()
 

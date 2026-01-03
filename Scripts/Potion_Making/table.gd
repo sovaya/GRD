@@ -83,7 +83,7 @@ func return_ingredient(item_node: Area2D) -> void:
 	item_node.input_pickable = true
 	item_node.z_index = 0
 
-	# ✅ Add back to inventory
+	# Add back to inventory
 	if item_node.ingredient_data:
 		PlayerInventory.add_item(item_node.ingredient_data)
 

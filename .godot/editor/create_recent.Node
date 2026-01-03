@@ -1,7 +1,7 @@
+Button
 CollisionShape2D
 Area2D
 Node2D
 AudioStreamPlayer2D      - Matches the "sound" keyword.
 Sprite2D
-Button
 RichTextLabel

@@ -15,10 +15,10 @@ func _ready():
 	# Remove once loot/rewards are implemented
 	# -------------------------
 	items = [
-		preload("res://Items/Ingredients/Flower.tres"),
-		preload("res://Items/Ingredients/Frog_Leg.tres"),
-		preload("res://Items/Ingredients/Mushroom.tres"),
-		preload("res://Items/Ingredients/Wolf_Claw.tres"),
+		preload("res://Resources/Items/Ingredients/Flower.tres"),
+		preload("res://Resources/Items/Ingredients/Frog_Leg.tres"),
+		preload("res://Resources/Items/Ingredients/Mushroom.tres"),
+		preload("res://Resources/Items/Ingredients/Wolf_Claw.tres"),
 	]
 
 	print("Inventory initialized with:", items)
@@ -56,10 +56,10 @@ func get_ingredients() -> Array[IngredientItemData]:
 # TEMP: Debug starter inventory
 func debug_fill():
 	items.clear()
-	items.append(preload("res://Items/Ingredients/Flower.tres"))
-	items.append(preload("res://Items/Ingredients/Frog_Leg.tres"))
-	items.append(preload("res://Items/Ingredients/Mushroom.tres"))
-	items.append(preload("res://Items/Ingredients/Wolf_Claw.tres"))
+	items.append(preload("res://Resources/Items/Ingredients/Flower.tres"))
+	items.append(preload("res://Resources/Items/Ingredients/Frog_Leg.tres"))
+	items.append(preload("res://Resources/Items/Ingredients/Mushroom.tres"))
+	items.append(preload("res://Resources/Items/Ingredients/Wolf_Claw.tres"))
 
 # For testing.
 func debug_print():

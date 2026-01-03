@@ -1,5 +1,9 @@
-res://Scenes/map.tscn
-res://Entities/Enemies/Wolf.tres
-res://Scenes/entity.tscn
+res://Scripts/Inventory/inventory.gd
 res://Scripts/Enemies/enemy.gd
-res://Scenes/global.tscn
+res://Scripts/Potions/potion.gd
+res://Scripts/entity.gd
+res://Scenes/potion_making.tscn
+res://Scripts/Potion_Making/cauldron.gd
+res://Scripts/Items/potion_data.gd
+res://Scripts/Potion_Making/potion_making.gd
+res://Scripts/Potion_Making/table.gd

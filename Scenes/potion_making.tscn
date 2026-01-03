@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bu8xspystoycl"]
+[gd_scene load_steps=8 format=3 uid="uid://bu8xspystoycl"]
 
 [ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://Media/icon.svg" id="1_0l4rq"]
+[ext_resource type="Script" uid="uid://6oqwswtl6c4g" path="res://Scripts/Potion_Making/potion_making.gd" id="1_kxfqh"]
 [ext_resource type="Script" uid="uid://b6kcmvxuv5eo8" path="res://Scripts/Potion_Making/table.gd" id="1_tlume"]
 [ext_resource type="PackedScene" uid="uid://kyae0dmp8iuj" path="res://Scenes/ingredient_item.tscn" id="2_u376a"]
 [ext_resource type="Script" uid="uid://clxn732w2oap7" path="res://Scripts/Potion_Making/cauldron.gd" id="4_xsowi"]
@@ -12,6 +13,7 @@ size = Vector2(1152.5, 268)
 size = Vector2(755, 342.5)
 
 [node name="PotionMaking" type="Node2D"]
+script = ExtResource("1_kxfqh")
 
 [node name="Table" type="Area2D" parent="." groups=["table"]]
 script = ExtResource("1_tlume")
@@ -39,3 +41,10 @@ position = Vector2(590, 200)
 shape = SubResource("RectangleShape2D_u376a")
 
 [node name="Contents" type="Node2D" parent="Cauldron"]
+
+[node name="Mix" type="Button" parent="."]
+offset_left = 1011.0
+offset_top = 43.0
+offset_right = 1126.0
+offset_bottom = 103.0
+text = "MIX"

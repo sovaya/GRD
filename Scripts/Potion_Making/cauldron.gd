@@ -131,6 +131,38 @@ func clear_mix():
 
 	ingredient_nodes.clear()
 
+func mix_into_potion() -> PotionData:
+	if mix.is_empty():
+		print("Cauldron is empty, nothing to mix!")
+		return null
+
+	var potion := PotionData.new()
+	potion.display_name = "Mixed Potion"  # You can later make procedural names
+	potion.ingredients = mix.duplicate()  # Copy ingredients to potion
+
+	# Combine effects from ingredients
+	var combined_effects := {}
+
+	for ingredient_node in mix:
+		var ingredient_data := ingredient_node  # mix contains IngredientItemData
+		if ingredient_data.effect == "":
+			continue  # Skip empty effects
+
+		var effect := ingredient_data.effect
+		if not combined_effects.has(effect):
+			combined_effects[effect] = 0
+		combined_effects[effect] += 1  # Sum effect count (can later be potency)
+
+	potion.effects = combined_effects
+
+	# Clear cauldron (ingredients already removed from inventory when placed)
+	clear_mix()
+
+	print("Potion crafted:", potion.display_name, potion.effects)
+	return potion
+
+
+
 # For testing
 func debug_print():
 	print("--- CAULDRON MIX ---")

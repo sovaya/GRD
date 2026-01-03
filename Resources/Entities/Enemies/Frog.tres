@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3 uid="uid://bdy4k36lgqltq"]
 
-[ext_resource type="Resource" uid="uid://fxa06wpahipc" path="res://Items/Ingredients/Wolf_Claw.tres" id="1_o0ia5"]
+[ext_resource type="Resource" uid="uid://fxa06wpahipc" path="res://Resources/Items/Ingredients/Wolf_Claw.tres" id="1_o0ia5"]
 [ext_resource type="Texture2D" uid="uid://b6e5hxdij361j" path="res://Media/icon.svg" id="2_1v6nd"]
 [ext_resource type="Script" uid="uid://cmxbawq2o0elj" path="res://Scripts/Enemies/enemy_data.gd" id="3_kovnm"]
 

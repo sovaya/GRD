@@ -25,7 +25,7 @@ signal attack(enemy)
 func _ready():
 	get_parent().end_turn.connect(_on_end_turn_button_down)
 	if enemy_data == null:
-		enemy_data = preload("res://Entities/Enemies/Wolf.tres")
+		enemy_data = preload("res://Resources/Entities/Enemies/Wolf.tres")
 		stats = enemy_data.enemy_info.duplicate()
 
 	

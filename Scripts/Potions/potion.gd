@@ -54,7 +54,7 @@ func _ready():
 		potion_data = PotionData.new()
 		potion_data.display_name = "Debug Potion"
 		potion_data.ingredients = [
-			preload("res://Items/Ingredients/Frog_Leg.tres"),
+			preload("res://Resources/Items/Ingredients/Frog_Leg.tres"),
 		]
 		potion_data.rebuild_effects()
 		_roll_random_effects()
