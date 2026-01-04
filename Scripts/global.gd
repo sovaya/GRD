@@ -20,6 +20,8 @@ func enemy_killed(drops):
 	dropslist.append_array(drops)
 	if enemycount <= 0:
 		$Stage/BattleEnd.visible = true
+		for item in dropslist:
+			PlayerInventory.add_item(item)
 		_spawn_drop_icons(dropslist)
 
 func _spawn_drop_icons(drops: Array):
@@ -88,6 +90,8 @@ func _slide_out_and_in():
 
 	# Cleanup
 	tween.finished.connect(func():
+		next_scene.stats = stats.duplicate()
 		queue_free()                 # remove old scene
 		get_tree().current_scene = next_scene
+		print(next_scene.stats)
 	)

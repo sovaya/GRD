@@ -15,10 +15,10 @@ func _ready():
 	# Remove once loot/rewards are implemented
 	# -------------------------
 	items = [
-		preload("res://Resources/Items/Ingredients/Flower.tres"),
-		preload("res://Resources/Items/Ingredients/Frog_Leg.tres"),
-		preload("res://Resources/Items/Ingredients/Mushroom.tres"),
-		preload("res://Resources/Items/Ingredients/Wolf_Claw.tres"),
+		#preload("res://Resources/Items/Ingredients/Flower.tres"),
+		#preload("res://Resources/Items/Ingredients/Frog_Leg.tres"),
+		#preload("res://Resources/Items/Ingredients/Mushroom.tres"),
+		#preload("res://Resources/Items/Ingredients/Wolf_Claw.tres"),
 	]
 
 	print("Inventory initialized with:", items)

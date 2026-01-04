@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var inventory_panel := $InventoryPanel
+@export var stats : Dictionary = {}
 
 func _on_mix_button_pressed():
 	# Find the first cauldron in the scene
