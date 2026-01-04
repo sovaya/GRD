@@ -52,6 +52,13 @@ func get_ingredients() -> Array[IngredientItemData]:
 
 	return result
 
+func get_potions() -> Array[PotionData]:
+	var result: Array[PotionData] = []
+	for item in items:
+		if item is PotionData:
+			result.append(item)
+	return result
+
 
 # TEMP: Debug starter inventory
 func debug_fill():

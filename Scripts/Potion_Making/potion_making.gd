@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var inventory_panel := $InventoryPanel
+
 func _on_mix_button_pressed():
 	# Find the first cauldron in the scene
 	var cauldron := get_tree().get_first_node_in_group("cauldron")
@@ -20,3 +22,7 @@ func _on_mix_button_pressed():
 	print("Crafted potion:", potion.display_name)
 	for effect in potion.effects.keys():
 		print("  +", potion.effects[effect], effect)
+
+func _on_inventory_button_pressed():
+	inventory_panel.visible = !inventory_panel.visible
+	inventory_panel.refresh()

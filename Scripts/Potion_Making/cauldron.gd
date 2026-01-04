@@ -139,6 +139,10 @@ func mix_into_potion() -> PotionData:
 	var potion := PotionData.new()
 	potion.display_name = "Mixed Potion"  # You can later make procedural names
 	potion.ingredients = mix.duplicate()  # Copy ingredients to potion
+	potion.rebuild_effects()
+	
+	# Assign random potion icon
+	potion.icon = _get_random_potion_icon()
 
 	# Combine effects from ingredients
 	var combined_effects := {}
@@ -161,6 +165,29 @@ func mix_into_potion() -> PotionData:
 	print("Potion crafted:", potion.display_name, potion.effects)
 	return potion
 
+func _get_random_potion_icon() -> Texture2D:
+	var dir := DirAccess.open("res://Media/Sprites/Potions")
+	if dir == null:
+		push_error("Potion sprites folder not found")
+		return null
+
+	var candidates: Array[String] = []
+
+	dir.list_dir_begin()
+	var file_name := dir.get_next()
+	while file_name != "":
+		if not dir.current_is_dir():
+			if file_name.begins_with("Potion") and file_name.ends_with(".png"):
+				candidates.append(file_name)
+		file_name = dir.get_next()
+	dir.list_dir_end()
+
+	if candidates.is_empty():
+		push_error("No potion icons found!")
+		return null
+
+	var chosen: String = candidates.pick_random()
+	return load("res://Media/Sprites/Potions/%s" % chosen)
 
 
 # For testing

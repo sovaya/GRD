@@ -7,3 +7,7 @@ res://Scripts/Potion_Making/cauldron.gd
 res://Scripts/Items/potion_data.gd
 res://Scripts/Potion_Making/potion_making.gd
 res://Scripts/Potion_Making/table.gd
+res://Scripts/UI/inventory_panel.gd
+res://Scenes/UI/inventory_panel.tscn
+res://Scripts/UI/item_slot.gd
+res://Scenes/UI/item_slot.tscn
